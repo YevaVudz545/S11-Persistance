@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MeilleurScoreTemps : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class MeilleurScoreTemps : MonoBehaviour
         _jeu = GetComponent<MiniJeu>();
 
         meilleurScore = PlayerPrefs.GetFloat("meilleurScore", 0f);
-        textMeilleurScore.text = "Meilleur score : " + meilleurScore.ToString("00.00");
+        string nom = PlayerPrefs.GetString("nomJoueur", "N/A");
+        textMeilleurScore.text = "Meilleur score de " + nom + " = " + meilleurScore.ToString("00.00");
     }
 
     private void Update()
